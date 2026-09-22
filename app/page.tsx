@@ -3,6 +3,7 @@ import { useState } from "react";
 import { supabase } from "./lib/supabase";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [propertyType, setPropertyType] = useState("");
@@ -36,7 +37,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B1F3B] text-white">
       {/* Navigation */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
         <div className="text-2xl font-bold tracking-tight">
           FIXIQO<span className="text-[#FF6A00]">.</span>
         </div>
@@ -55,6 +56,51 @@ export default function Home() {
             Give Feedback
           </a>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="ml-auto mr-3 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white md:hidden"
+          aria-label="Open menu"
+        >
+          <span className="text-2xl">☰</span>
+        </button>
+
+          {menuOpen && (
+          <div className="absolute right-6 top-20 z-50 w-56 rounded-2xl border border-white/10 bg-[#0B1F3B] p-3 shadow-xl md:hidden">
+            <a
+              href="#how-it-works"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              How It Works
+            </a>
+
+            <a
+              href="#services"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              Services
+            </a>
+
+            <a
+              href="#property-care"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              Property Care
+            </a>
+
+            <a
+              href="#feedback"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              Give Feedback
+            </a>
+          </div>
+        )}
 
         <a
           href="#feedback"
