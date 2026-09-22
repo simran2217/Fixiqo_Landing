@@ -57,16 +57,25 @@ export default function Home() {
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="ml-auto mr-3 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white md:hidden"
-          aria-label="Open menu"
-        >
-          <span className="text-2xl">☰</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href="#feedback"
+            className="rounded-full bg-[#FF6A00] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e85f00]"
+          >
+            Join Early Access
+          </a>
 
-          {menuOpen && (
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white md:hidden"
+            aria-label="Open menu"
+          >
+            <span className="text-2xl">☰</span>
+          </button>
+        </div>
+
+        {menuOpen && (
           <div className="absolute right-6 top-20 z-50 w-56 rounded-2xl border border-white/10 bg-[#0B1F3B] p-3 shadow-xl md:hidden">
             <a
               href="#how-it-works"
@@ -102,12 +111,7 @@ export default function Home() {
           </div>
         )}
 
-        <a
-          href="#feedback"
-          className="rounded-full bg-[#FF6A00] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e85f00]"
-        >
-          Join Early Access
-        </a>
+        
       </nav>
 
       {/* Hero */}
